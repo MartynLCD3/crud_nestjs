@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+        back3:
+                container_name: app3
+                restart: always
+                build: .
+                ports:
+                    - "3000:3000"
+                volumes:
+                        - .:/app
+                links:
+                        - database3
+        database3:
+               container_name: database3
+               image: mongo
+               ports:
+                       - "27019:27017"
