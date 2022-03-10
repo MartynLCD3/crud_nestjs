@@ -13,7 +13,7 @@ import { TasksService } from './tasks.service';
 
 @Controller('tasks')
 export class TasksController {
-  constructor(private taskService: TasksService) {}
+  constructor(private readonly taskService: TasksService) {}
 
   @Get()
   getTasks(): Promise<Task[]> {
@@ -22,7 +22,7 @@ export class TasksController {
 
   @Get(':taskId')
   getTask(@Param('taskId') taskId: string) {
-    return this.taskService.getTask(taskId);
+      return this.taskService.getTask(taskId);
   }
 
   @Post()

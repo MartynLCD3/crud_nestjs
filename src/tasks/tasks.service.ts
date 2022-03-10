@@ -6,7 +6,7 @@ import { Model } from 'mongoose';
 
 @Injectable()
 export class TasksService {
-  constructor(@InjectModel('Task') private taskModel: Model<Task>) {}
+  constructor(@InjectModel('Task') private readonly taskModel: Model<Task>) {}
 
   async getTasks() {
     return await this.taskModel.find();
